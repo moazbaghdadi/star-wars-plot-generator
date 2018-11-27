@@ -1,0 +1,47 @@
+<form #form="ngForm" (ngSubmit)="createPlot()">
+  <div class="float-right">
+    <button class="btn btn-dark mr-2" type="reset" routerLink="/">Back</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.form.valid">Create</button>
+  </div>
+  <h2>New Plot</h2>
+  <div class="alert alert-success mt-5" role="alert" [hidden]="!submitted">
+    Plot successfully created! You can return to the home page to see the plot, or continue creating more plots on this page.
+  </div>
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text">title*</span>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Title"
+          aria-describedby="inputGroup-sizing-sm"
+          name="title"
+          [(ngModel)]="plot.title"
+          required>
+      </div>
+      <div class="input-group mt-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Description</span>
+        </div>
+        <textarea class="form-control"
+                  aria-label="Description"
+                  name="description"
+                  [(ngModel)]="plot.description"></textarea>
+      </div>
+      <div class="row mt-5">
+        <div class="col-12 col-md-4">
+          <app-plot-parameter parameterName="People" [parameters]="plot.people"></app-plot-parameter>
+        </div>
+        <div class="col-12 col-md-4">
+          <app-plot-parameter parameterName="Planets" [parameters]="plot.planets"></app-plot-parameter>
+        </div>
+        <div class="col-12 col-md-4">
+          <app-plot-parameter parameterName="Starships" [parameters]="plot.starships"></app-plot-parameter>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

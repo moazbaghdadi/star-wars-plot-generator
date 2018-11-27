@@ -1,0 +1,40 @@
+<div *ngIf="plot; else plotNotFound">
+  <div>
+    <div>
+      <h5 class="d-inline-block mr-3">Title:</h5><span>{{plot.title}}</span>
+    </div>
+    <div>
+      <h5 class="d-inline-block mr-3">Description:</h5><span>{{plot.description}}</span>
+    </div>
+    <div>
+      <h5>People:</h5>
+      <ul>
+        <li *ngFor="let person of plot.people">
+          {{person.name}}, born at: {{person.birth_year}}, gender: {{person.gender}}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h5>Starships:</h5>
+      <ul>
+        <li *ngFor="let ship of plot.starships">
+          {{ship.name}}, class: {{ship.starship_class}}, consumables: {{ship.consumables}}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h5>Planets:</h5>
+      <ul>
+        <li *ngFor="let planet of plot.planets">
+          {{planet.name}}, climate: {{planet.climate}}, terrain: {{planet.terrain}}, diameter: {{planet.diameter}}, population: {{planet.population}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<ng-template #plotNotFound>
+  <div class="text-center">
+    <h2>The plot you are looking for couldn't be found!</h2>
+    <button class="mt-4 btn btn-primary" routerLink="/">return to Home</button>
+  </div>
+</ng-template>

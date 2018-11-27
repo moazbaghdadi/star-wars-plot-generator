@@ -1,0 +1,25 @@
+.search-results-overlay {
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  background: white;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+
+  ul {
+    margin-bottom: 0;
+
+    li {
+      padding: 2px 7px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ced4da;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #ced4da;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<div class="container row mt-3">
+  <ng-container *ngIf="plots && plots.length > 0; else noPlots">
+    <ng-container *ngFor="let plot of plots">
+      <div class="col">
+        <app-plot-list-item [plot]="plot"></app-plot-list-item>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-template #noPlots>
+    <p>No plots exist yet. <a routerLink="/new">Start creating one now!</a></p>
+  </ng-template>
+</div>
